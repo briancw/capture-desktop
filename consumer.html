@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Viewer</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+
+        <canvas id="dataViewer"></canvas>
+
+        <script>
+            const canvas = document.getElementById('dataViewer')
+            const ctx = canvas.getContext('2d')
+            
+            let width = 640
+            let height = 360
+            canvas.width = width
+            canvas.height = height
+
+            setInterval(updateCanvas, 300)
+
+            function updateCanvas() {
+                window.fetch('https://192.168.86.42:3090/data')
+                .then((res) => res.text())
+                .then((res) => {
+                    let pixelData = res.split('|')[0].split(',').map(Number)
+                    // let width = res.split('|')[1]
+                    // let height = res.split('|')[2]
+                    let imageData = ctx.createImageData(width, height)
+                    // console.log(imageData)
+                    // console.log(pixelData)
+
+                    for (let i = 0; i < pixelData.length; i += 4) {
+                        imageData.data[i] = pixelData[i] // Red
+                        imageData.data[i + 1] = pixelData[i + 1] // Green
+                        imageData.data[i + 2] = pixelData[i + 2] // Blue
+                        imageData.data[i + 3] = pixelData[i + 3] // Alpha
+                    }
+            
+                    ctx.putImageData(imageData, 0, 0)
+                    // console.log(imageData)
+                })
+            }
+        </script>
+    </body>
+</html>

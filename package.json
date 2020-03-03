@@ -1,0 +1,18 @@
+{
+    "name": "capture-desktop",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "keywords": [],
+    "author": "Brian Whicheloe <brian@whicheloe.us> (https://whicheloe.us/)",
+    "license": "MIT",
+    "dependencies": {
+        "electron": "^8.0.2",
+        "eslint": "^6.8.0",
+        "eslint-config-brian": "^1.0.6",
+        "express": "^4.17.1"
+    }
+}
