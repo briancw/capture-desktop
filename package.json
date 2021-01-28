@@ -10,7 +10,7 @@
     "author": "Brian Whicheloe <brian@whicheloe.us> (https://whicheloe.us/)",
     "license": "MIT",
     "dependencies": {
-        "electron": "^8.0.2",
+        "electron": "^9.4.0",
         "eslint": "^6.8.0",
         "eslint-config-brian": "^1.0.6",
         "express": "^4.17.1"
